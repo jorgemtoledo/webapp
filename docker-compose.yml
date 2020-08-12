@@ -9,7 +9,7 @@ services:
         ports:
             - "3306:3306"
         volumes:
-            - ./db/mysql/volumes:/var/lib/mysql
+            - mysql-data:/var/lib/mysql
 
     app:
         build: .
@@ -26,3 +26,6 @@ services:
 
 volumes:
   gem_data:
+  mysql-data:
+    driver: local
+    
