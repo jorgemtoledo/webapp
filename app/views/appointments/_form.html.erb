@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :appointment_type %>
-    <%= form.number_field :appointment_type %>
+    <%= select_tag :appointment_types, options_for_select(Appointment.appointment_types.map {|k, v| [k.humanize.capitalize, v]}) %>
   </div>
 
   <div class="field">
