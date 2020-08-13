@@ -12,11 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :admin %>
-    <%= form.check_box :admin %>
-  </div>
-
-  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
@@ -39,21 +34,27 @@
     <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <% if current_user.admin? %>
+    <div class="field">
+      <%= form.label :position %>
+      <%= form.text_field :position %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :department %>
+      <%= form.text_field :department %>
+    </div>
 
-  <div class="field">
-    <%= form.label :position %>
-    <%= form.text_field :position %>
-  </div>
+    <div class="field">
+      <%= form.label :workload %>
+      <%= form.number_field :workload %>
+    </div>
 
-  <div class="field">
-    <%= form.label :department %>
-    <%= form.text_field :department %>
-  </div>
-
-  <div class="field">
-    <%= form.label :workload %>
-    <%= form.number_field :workload %>
-  </div>
+    <div class="field">
+      <%= form.label :admin %>
+      <%= form.check_box :admin %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>
