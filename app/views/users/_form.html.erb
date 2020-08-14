@@ -1,62 +1,67 @@
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <h4><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h4>
+      <hr>
       <ul>
         <% user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control", required: true %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :email %><br />
-    <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= form.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", required: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= form.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password_confirmation %><br />
-    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= form.password_field :password, autocomplete: "new-password", class: "form-control" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :password_confirmation %><br />
+      <%= form.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+    </div>
   </div>
 
   <% if current_user.admin? %>
-    <div class="field">
-      <%= form.label :position %>
-      <%= form.text_field :position %>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= form.label :position %>
+        <%= form.text_field :position, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= form.label :department %>
+        <%= form.text_field :department, class: "form-control"  %>
+      </div>
+      <div class="form-group col-md-2">
+        <%= form.label :workload %>
+        <%= form.number_field :workload, class: "form-control" %>
+      </div>
     </div>
-  
-    <div class="field">
-      <%= form.label :department %>
-      <%= form.text_field :department %>
-    </div>
-
-    <div class="field">
-      <%= form.label :workload %>
-      <%= form.number_field :workload %>
-    </div>
-
-    <div class="field">
-      <%= form.label :admin %>
-      <%= form.check_box :admin %>
+    
+    <div class="form-group">
+      <div class="form-check">
+        <%= form.check_box :admin, class: "form-check-input" %>
+        <%= form.label :admin %>      
+      </div>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit class: 'btn btn-primary' %>
+  <%= link_back %>
 <% end %>

@@ -17,10 +17,9 @@
       <%= render 'layouts/navigation' %>
     </header>
     <main role="main">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       <%= render 'layouts/jumbotron' %>
       <%= content_for?(:content) ? yield(:content) : yield %>
+      <%= toastr_flash %>
     </main>
   </body>
 </html>

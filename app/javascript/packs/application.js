@@ -18,3 +18,5 @@ require("channels")
 
 import "bootstrap";
 import "../stylesheets/application.scss";
+import toastr from 'toastr'
+window.toastr = toastr
