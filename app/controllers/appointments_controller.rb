@@ -4,12 +4,20 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = Appointment.all
+    if current_user.admin?
+      @appointments = Appointment.all
+    else
+      @appointments = Appointment.where(user_id: current_user.id)
+    end
   end
 
   # GET /appointments/1
   # GET /appointments/1.json
   def show
+  end
+
+  def appointment_history
+    @appointments = Appointment.where(user_id: params[:id])    
   end
 
   # GET /appointments/new
@@ -24,8 +32,15 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   # POST /appointments.json
   def create
-    @appointment = Appointment.new(appointment_params)
-
+    @teste = Appointment.registred_this_day.where(user_id: current_user.id, appointment_type: appointment_params[:appointment_type])
+    puts @teste.inspect
+    if !Appointment.registred_this_day.where(user_id: current_user.id, appointment_type: appointment_params[:appointment_type]).blank?
+      flash[:alert] = 'This note already exists on that date.'
+      redirect_to new_appointment_path
+      return      
+    end
+    
+    @appointment = current_user.appointments.build(appointment_params)
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
@@ -40,6 +55,11 @@ class AppointmentsController < ApplicationController
   # PATCH/PUT /appointments/1
   # PATCH/PUT /appointments/1.json
   def update
+    if !Appointment.registred_this_day.where(user_id: current_user.id, appointment_type: appointment_params[:appointment_type]).blank?
+      flash[:alert] = 'This note already exists on that date.'
+      redirect_to '/appointments'
+      return      
+    end
     respond_to do |format|
       if @appointment.update(appointment_params)
         format.html { redirect_to @appointment, notice: 'Appointment was successfully updated.' }

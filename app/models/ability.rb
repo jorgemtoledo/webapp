@@ -9,6 +9,7 @@ class Ability
       can :manage, :all
     else
       can [:read, :update], User, id: user.id
+      can :manage, Appointment, id: user.id
     end
   end
 end

@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p>
+    <strong>Appointment date:</strong>
+    <%= @appointment.appointment_date.strftime("%d/%m/%Y")  %>
+  </p>
 
-<p>
-  <strong>Appointment date:</strong>
-  <%= @appointment.appointment_date %>
-</p>
+  <p>
+    <strong>Hour </strong>
+    <%= @appointment.appointment_date.strftime("%I:%M%p")   %>
+  </p>
 
-<p>
-  <strong>Appointment type:</strong>
-  <%= @appointment.appointment_type %>
-</p>
+  <p>
+    <strong>Appointment type:</strong>
+    <%= @appointment.appointment_type %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @appointment.user_id %>
-</p>
+  <p>
+    <strong>User:</strong>
+    <%= @appointment.user.name %>
+  </p>
 
-<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
-<%= link_to 'Back', appointments_path %>
+  <%= link_back %>
+</div>

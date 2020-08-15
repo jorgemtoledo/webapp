@@ -13,23 +13,13 @@
       </button>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :appointment_date %>
-    <%= form.datetime_select :appointment_date %>
-  </div>
-
-  <div class="field">
+  <div class="row">
+  <div class="col-md-4 mb-3">
     <%= form.label :appointment_type %>
-    <%= select_tag :appointment_types, options_for_select(Appointment.appointment_types.map {|k, v| [k.humanize.capitalize, v]}) %>
+      <%= form.select(:appointment_type, Appointment.appointment_types.keys.map { |w| [w.humanize, w] }, {}, { :class => 'custom-select d-block w-100' }) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit class: 'btn btn-primary' %>
+  <%= link_back %>
 <% end %>
