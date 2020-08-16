@@ -1,26 +1,31 @@
 <div class="container">
 <p>
-  <strong>Admin:</strong>
+  <strong><%= t('user_admin') %> :</strong>
   <%= @user.admin %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= t('user_name') %> :</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>Position:</strong>
+  <strong><%= t('user_email') %> :</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong><%= t('user_position') %> :</strong>
   <%= @user.position %>
 </p>
 
 <p>
-  <strong>Department:</strong>
+  <strong><%= t('user_department') %> :</strong>
   <%= @user.department %>
 </p>
 
 <p>
-  <strong>Workload:</strong>
+  <strong><%= t('user_workload') %> :</strong>
   <%= @user.workload %>
 </p>
 

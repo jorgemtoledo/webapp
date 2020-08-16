@@ -10,6 +10,6 @@ module ApplicationHelper
     end
 
     def link_back
-        return link_to 'Back', 'javascript:history.back()',  class: 'btn btn-secondary'
+        return link_to t('back'), 'javascript:history.back()',  class: 'btn btn-secondary'
     end
 end

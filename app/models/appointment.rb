@@ -8,7 +8,7 @@ class Appointment < ApplicationRecord
   scope :appointment_user_id, -> { where(user_id: current.id) }
 
   # Appointment Type
-  enum appointment_type: { beginning_workday: 0, lunch_time: 1, return_of_lunch: 2,  end_workday: 3 }
+  enum appointment_type: { Inicio: 0, Almoco: 1, Retorno: 2,  Saida: 3 }
 
   private
   def set_time

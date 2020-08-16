@@ -1,21 +1,21 @@
 <div class="container">
   <p>
-    <strong>Appointment date:</strong>
+    <strong><%= t('appointment_month') %>:</strong>
     <%= @appointment.appointment_date.strftime("%d/%m/%Y")  %>
   </p>
 
   <p>
-    <strong>Hour </strong>
+    <strong><%= t('appointment_hour') %> </strong>
     <%= @appointment.appointment_date.strftime("%I:%M%p")   %>
   </p>
 
   <p>
-    <strong>Appointment type:</strong>
+    <strong><%= t('appointment_type') %>:</strong>
     <%= @appointment.appointment_type %>
   </p>
 
   <p>
-    <strong>User:</strong>
+    <strong><%= t('appointment_user') %>:</strong>
     <%= @appointment.user.name %>
   </p>
 

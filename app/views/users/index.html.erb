@@ -3,11 +3,11 @@
     <table class="table table-striped table-sm">
       <thead>
         <tr>
-          <th>Admin</th>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Department</th>
-          <th>Workload</th>
+          <th><%= t('user_admin') %></th>
+          <th><%= t('user_name') %></th>
+          <th><%= t('user_position') %></th>
+          <th><%= t('user_department') %></th>
+          <th class="text-center"><%= t('user_workload') %></th>
           <th colspan="4"></th>
         </tr>
       </thead>
@@ -15,11 +15,11 @@
       <tbody>
         <% @users.each do |user| %>
           <tr>
-            <td><%= user.admin %></td>
+            <td><%= user.admin? ? 'Sim' : 'Não' %></td>
             <td><%= user.name %></td>
             <td><%= user.position %></td>
             <td><%= user.department %></td>
-            <td><%= user.workload %></td>
+            <td class="text-center"><%= user.workload %></td>
             <td>
               <%= link_to(user) do %>
                 <i class="fa fa-eye"></i>
@@ -47,6 +47,6 @@
 <br>
 
 <% if current_user.admin? %>
-  <%= link_to 'New User', new_user_path,  class: 'btn btn-primary btn-table' %>
+  <%= link_to t('user_new') , new_user_path,  class: 'btn btn-primary btn-table' %>
 <% end %>
 </div>

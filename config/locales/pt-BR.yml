@@ -1,0 +1,53 @@
+---
+  pt-BR:
+    dashboard_index: WebApp Apontamentos
+    users: Usuários
+    appointments: Apontamentos
+    users_index: Usuários
+    users_new: Cadastrar usuário
+    users_edit: Editar usuário
+    users_show: Detalhes usuário
+    appointments_index: Apontamentos
+    appointments_edit: Editar Apontamento
+    appointments_show: Detalhes Apontamento
+    appointments_new: Cadastrar Apontamento
+    user_name: Nome do usuário
+    user_email: E-mail do usuário
+    user_admin: Admin?
+    user_position: Cargo
+    user_department: Departamento
+    user_workload: Carga Horária
+    user_new: Cadastrar
+    appointment_date: Apontamento
+    appointment_type: Tipo de apontamento
+    appointment_new: Cadastrar
+    appointment_month: Data do apontamento
+    appointment_hour: Data do apontamento
+    appointment_user: Funcionário
+    sign_out: Sair
+    back: Voltar
+    flash:
+      actions:
+        notice:
+          user_created: "Usuário cadastrado com sucesso!"
+          user_updated: "Usuário atualizado com sucesso!"
+          user_destroyed: "Usuário deletado com sucesso!"
+          appointment_created: "Apontamento cadastrado com sucesso!"
+          appointment_updated: "Apontamento atualizado com sucesso!"
+          appointment_destroyed: "Apontamento deletado com sucesso!"
+        alert:
+          appointment_exists: "Já existe um apontamento desse tipo e nessa data!"
+    activerecord:
+      models:
+        user: Usuário
+        appointment: Apontamento
+      attributes:
+        user:
+          name: Nome do usuário
+          position: Cargo
+          department: Departamento
+          workload: Carga Horária
+          admin: Admin?
+        appointment:
+          appointment_type: Tipo de apontamento
+    
