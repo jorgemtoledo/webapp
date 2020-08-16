@@ -11,6 +11,7 @@
     appointments_edit: Editar Apontamento
     appointments_show: Detalhes Apontamento
     appointments_new: Cadastrar Apontamento
+    appointments_appointment_history: Histórico dos Apontamentos
     user_name: Nome do usuário
     user_email: E-mail do usuário
     user_admin: Admin?
@@ -19,6 +20,8 @@
     user_workload: Carga Horária
     user_new: Cadastrar
     appointment_date: Apontamento
+    appointment_date_history: Data Apontamento
+    appointment_hour_history: Hora Apontamento
     appointment_type: Tipo de apontamento
     appointment_new: Cadastrar
     appointment_month: Data do apontamento
